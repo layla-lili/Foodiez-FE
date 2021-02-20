@@ -24,6 +24,10 @@ const CategoryDetail = () => {
   // );
 
   if (!category) return <Redirect to="/categories" />;
+  console.log(
+    "🚀 ~ file: CategoryDetail.js ~ line 31 ~ CategoryDetail ~ !category",
+    !category
+  );
 
   return (
     <>
@@ -36,6 +40,7 @@ const CategoryDetail = () => {
         <img src={category.image} alt={category.name} />
         <p>{category.description}</p>
       </DetailWrapper>
+
       <IngredientList
         category={category}
         categoryId={category.id}

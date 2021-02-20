@@ -12,6 +12,10 @@ import CategoryList from "./CategoryList";
 // import Loading from "./Loading";
 
 const IngredientList = ({ categoryId }) => {
+  console.log(
+    "🚀 ~ file: IngredientList.js ~ line 15 ~ IngredientList ~ categoryId",
+    categoryId
+  );
   const [query, setQuery] = useState("");
   // const loading = useSelector((state) => state.ingredients.loading);
   // if (loading) return <Loading />;
@@ -39,14 +43,19 @@ const IngredientList = ({ categoryId }) => {
     .map((ingredient) => (
       <IngredientItem ingredient={ingredient} key={ingredient.id} />
     ));
+  console.log(
+    "🚀 ~ file: IngredientList.js ~ line 42 ~ IngredientList ~ ingredients",
+    ingredients
+  );
 
   return (
     <div>
       <Link to={`/categories/${categoryId}/ingredients/create`}>
         <AddButtonStyled>Add ingredient</AddButtonStyled>
       </Link>
-      <Title>Ingredients</Title>
+
       <SearchBar setQuery={setQuery} />
+      <Title>Ingredients</Title>
       <ListWrapper>{ingredientList}</ListWrapper>
     </div>
   );

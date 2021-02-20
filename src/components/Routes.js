@@ -9,23 +9,31 @@ import IngredientDetail from "./IngredientDetail";
 import IngredientForm from "./IngredientForm";
 const Routes = () => {
   const categories = useSelector((state) => state.categoryReducer.categories);
+  const ingredients = useSelector(
+    (state) => state.ingredientReducer.ingredients
+  );
   return (
     <Switch>
-      <Route path={"/categories/create"}>
-        <CategoryForm />
-      </Route>
       <Route path={"/categories/:categoryId/ingredients/create"}>
         <IngredientForm />
       </Route>
+
+      <Route path={"/categories/create"}>
+        <CategoryForm />
+      </Route>
+
       <Route path="/categories/:categorySlug">
         <CategoryDetail />
       </Route>
-      <Route path="/categories">
-        <CategoryList categories={categories} />
-      </Route>
+
       <Route path="/ingredients/:ingredientSlug">
         <IngredientDetail />
       </Route>
+
+      <Route path="/categories">
+        <CategoryList categories={categories} />
+      </Route>
+
       <Route path="/ingredients">
         <IngredientList />
       </Route>

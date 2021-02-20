@@ -11,6 +11,7 @@ const CategoryList = ({ categories }) => {
   const [query, setQuery] = useState("");
   const loading = useSelector((state) => state.loading);
   if (loading) return <Loading />;
+
   const categoryList = categories
     .filter((category) =>
       category.name.toLowerCase().includes(query.toLowerCase())
